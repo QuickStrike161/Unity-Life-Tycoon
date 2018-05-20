@@ -8,6 +8,11 @@ using System;
 
 public class MainControl : MonoBehaviour {
 
+    /*
+     * this is the main control for the game, it contains general information about the player,
+     * controls the money and wage of the player, and sets the stage that is being used
+     */
+
     private string[] stagesNames = new string[] {"","Employee","Manager","Business Owner","Mayor","Premier","President","Global Domination","System Domination","Galactic Domination","Universal Domination"};
 
     public TMP_Text[] SkillsText;
@@ -26,7 +31,7 @@ public class MainControl : MonoBehaviour {
     public PlayerInfo player;
     public Business setUp;
 
-    // Use this for initialization
+    //Set up the skill and info displays as well as activate the current stages menu
     void Start(){
 
         reset.reset();
@@ -64,20 +69,24 @@ public class MainControl : MonoBehaviour {
         timeSec = tempTime;
     }
 
+    //add money to the player
     public void addMoney(int value)
     {
         moneyNow = moneyNow + value;
     }
 
+    //remove money from the player
     public void spendMoney(int value){
         moneyNow = moneyNow - value;
         GeneralInfoText[3].SetText(getWage(moneyNow));
     }
 
+    //return the current money 
     public int getMoney(){
         return moneyNow;
     }
 
+    //set up the amount of money that the player has made since the last second
     private void incomeSecond(){
         if (player.stage == 1)
         {
@@ -95,6 +104,7 @@ public class MainControl : MonoBehaviour {
         GeneralInfoText[3].SetText(getWage(moneyNow));
     }
 
+    //make a string to display money
     public string getWage(int wage){
         string temp = "";
         if (wage >= 1000000){
@@ -107,6 +117,7 @@ public class MainControl : MonoBehaviour {
         return "$" + temp1 + "." + temp3 + temp2 + temp;
     }
 
+    //add points to the skills
     private void updateSkills(float amount, int place){
         player.skillPoints[place] = player.skillPoints[place] + amount;
         if (player.skillPoints[place] > player.skillNeeded[place]){
@@ -117,6 +128,7 @@ public class MainControl : MonoBehaviour {
         }
     }
 
+    //add the amount of point that were made from serving a customer depending on sector
     public void addToSkillsAmounts(int amount, int sector){
         switch (sector)
         {
@@ -147,6 +159,7 @@ public class MainControl : MonoBehaviour {
         }
     }
 
+    //generate a name
     public string getName()
     {
         return createName.getName();

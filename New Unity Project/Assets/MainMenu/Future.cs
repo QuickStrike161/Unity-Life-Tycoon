@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class Future : MonoBehaviour {
 
+    /*
+     * this code controls the future dispaly, updates the dispal when the left or right arrows are clicked,
+     * depending on the value of pageNumber a diffrent page will be displayed, also controls the links
+     * to the other display pages, so that you can switch between them and this
+     */
+
     public TMP_Text TitleText;
     public TMP_Text PageText;
     public TMP_Text InfoText;

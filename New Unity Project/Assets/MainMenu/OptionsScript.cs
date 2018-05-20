@@ -6,6 +6,11 @@ using TMPro;
 
 public class OptionsScript : MonoBehaviour {
 
+    /*
+     * This controls the options displays, updates the quality and full screen, need to add sound options
+     * when a sound track has been added 
+     */
+
     int QValue;
     Resolution[] resolutions;
 
@@ -15,11 +20,11 @@ public class OptionsScript : MonoBehaviour {
     public ManagerGame managerGame;
 
     void Start(){
+        //set up the resolution options based on there computer graphics
         resolutions = Screen.resolutions;
         ResolutionDropDown.ClearOptions();
 
         List<string> options = new List<string>();
-
         int currentRes = 0;
         for(int i = 0; i < resolutions.Length; i++){
             string option = resolutions[i].width + " x " + resolutions[i].height;
@@ -30,14 +35,15 @@ public class OptionsScript : MonoBehaviour {
                 currentRes = i;
             }
         }
-
         ResolutionDropDown.AddOptions(options);
         ResolutionDropDown.value = currentRes;
         ResolutionDropDown.RefreshShownValue();
 
+        //set up the quality resolutions 
         QualityDropDown.value = QualitySettings.GetQualityLevel();
         QualityDropDown.RefreshShownValue();
 
+        //toggle fullscreen on or off depending on there settings 
         if (Screen.fullScreen == true){
             fullScreen.isOn = true;
         }
@@ -58,6 +64,11 @@ public class OptionsScript : MonoBehaviour {
     public void setRes(int value){
         Resolution res = resolutions[value];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+
+        if (managerGame == null)
+        {
+            return;
+        }
 
         if (managerGame.isActiveAndEnabled == true)
         {

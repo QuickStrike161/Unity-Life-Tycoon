@@ -6,6 +6,14 @@ using TMPro;
 
 public class ShopStage1 : MonoBehaviour
 {
+
+    /*
+     * this is the first level(employee level) of shop, it uses the ItemList from the business
+     * to display 4 randomly generated items for the player to choose from. The purchase button
+     * becomes active one there is enough money to purchase the iteam, once purchased
+     * the benifits are added to the player
+     */
+
     public TMP_Text[] titles;
     public TMP_Text[] info;
     public TMP_Text[] priceText;
@@ -62,7 +70,7 @@ public class ShopStage1 : MonoBehaviour
 
     }
 
-    //set up the availible trainings as well as the display
+    //set up the availible items as well as the display
     private void setUp()
     {
         if (player.playerEmployee.focusMultiplyer[0] == 1 && player.playerEmployee.shopIteamsAvailible.Count == 0)
@@ -78,7 +86,7 @@ public class ShopStage1 : MonoBehaviour
         suffle();
     }
 
-    //update the displayes for the training background 
+    //update the displayes for the item background 
     private void updateShopDisplay()
     {
         for (short x = 0; x < displayed.Length; x++)
@@ -86,7 +94,7 @@ public class ShopStage1 : MonoBehaviour
             if (displayed[x] == -1)
             {
                 titles[x].SetText("None");
-                info[x].SetText("out of training");
+                info[x].SetText("out of items");
                 priceText[x].SetText("--:--");
                 purchase[x].interactable = false;
                 price[x] = 0;
@@ -100,7 +108,7 @@ public class ShopStage1 : MonoBehaviour
         }
     }
 
-    //suffles the training that is displayed
+    //suffles the items that are displayed
     public void suffle()
     {
         displayed = new int[] { -1, -1, -1 };
@@ -123,7 +131,7 @@ public class ShopStage1 : MonoBehaviour
         updateShopDisplay();
     }
 
-    //method to generate a training that is not being displayed
+    //method to generate a item that is not being displayed
     private int getOne()
     {
         int intSelect = Random.Range(0, player.playerEmployee.shopIteamsAvailible.Count);

@@ -6,6 +6,11 @@ using TMPro;
 
 public class HelpGoThrough : MonoBehaviour {
 
+    /*
+     * is started by the help option, goes through the diffrent parts of the first level
+     * of the game explaining how they work to the player.
+     */
+
     public GameObject skills;
     public GameObject statsWorld;
     public GameObject statsBus;
@@ -27,11 +32,13 @@ public class HelpGoThrough : MonoBehaviour {
 
     private int stage;
 
+    //call this to start the walkthrough
     public void startHelp(){
         stage = 0;
         run();
     }
 
+    //this sets diffrent parts active or unactive depending what is needed 
     public void run(){
         switch (stage){
             case 0:

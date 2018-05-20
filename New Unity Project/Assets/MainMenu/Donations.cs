@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class Donations : MonoBehaviour
 {
 
+    /*
+     * this code controls the donation dispaly, updates the dispal when the left or right arrows are clicked,
+     * depending on the value of pageNumber a diffrent page will be displayed, there needs to links added to
+     * this so that the player can donate to support the page as well as I want to add a list of the top donators 
+     */
+
     public TMP_Text TitleText;
     public TMP_Text PageText;
     public TMP_Text InfoText;

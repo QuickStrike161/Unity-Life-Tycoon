@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Skills : MonoBehaviour
 {
+    /*
+     * this code controls the skills dispaly, updates the dispal when the left or right arrows are clicked,
+     * depending on the value of pageNumber a diffrent page will be displayed
+     */
 
     public TMP_Text TitleText;
     public TMP_Text PageText;

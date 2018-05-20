@@ -7,6 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class CreateGame : MonoBehaviour {
 
+    /*
+     * this will control the creation of a new game, it starts with the 4 game are selection,
+     * once a selection has been made generate a business randomly about the ones availible within
+     * the chosen sector. resets game and sets up the new game. This menu needs to be updates to
+     * add the business selection, and later in development we will be creating a more
+     * complex creation method. 
+     */
+
     public TMP_Text TextInfo;
     public Button startButton;
     public TMP_Text ComingSoon;
@@ -23,9 +31,9 @@ public class CreateGame : MonoBehaviour {
 
     private int oneToRun;
 
+    //reset player data and start the game
     public void beginGame(){
         oneToRun = 0;
-        PlayerPrefs.DeleteAll();
         player.reset();
         player.sector = sector;
         player.business = runThese[oneToRun];
@@ -33,6 +41,7 @@ public class CreateGame : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
+    //set up the display for the player to choose the sector that they want 
     public void setText(int position){
         sector = position;
         if (position == 0){

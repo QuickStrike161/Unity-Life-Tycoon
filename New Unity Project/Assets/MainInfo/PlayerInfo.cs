@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player", menuName = "Player")]
 public class PlayerInfo : ScriptableObject
 {
+    //contains the information that you need to know about the player all are reset at the begining of a new game except for level
     public int level = 1;
     public int stage = 1;
     public int sector;

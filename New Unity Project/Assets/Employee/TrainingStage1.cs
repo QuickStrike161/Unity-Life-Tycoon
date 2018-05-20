@@ -6,6 +6,13 @@ using TMPro;
 
 public class TrainingStage1 : MonoBehaviour
 {
+
+    /*
+     * this is the first level(employee level) of training, it uses the trainingList from the business
+     * to display 4 randomly generated trainings for the player to choose from. Once training has been
+     * added it can not be removed. And once complete it benifits are added to the player.
+     */
+
     //get the objects that will display information for the game
     public TMP_Text[] titles;
     public TMP_Text[] info;
@@ -34,10 +41,9 @@ public class TrainingStage1 : MonoBehaviour
         updateTrainingDisplay();
     }
 
-    //return the time that the current training will take based on how fast it is currently running (min:sec)
+    //return the time that the current training will take based on how fast it is currently running (min:sec) or (hour:sec)
     public string getTimeForTraining(int amount)
     {
-        //int amount = business.trainingList[employee.task.wants[0]].cost - (int)(business.trainingList[employee.task.wants[0]].cost * employee.task.progress);
         int tempFocus = player.focus[3];
 
         if (tempFocus == 0)
@@ -47,7 +53,13 @@ public class TrainingStage1 : MonoBehaviour
         else
         {
             tempFocus = (int)Mathf.Ceil(amount / (tempFocus * player.playerEmployee.focusMultiplyer[3] * player.playerEmployee.timeMultiplyer[3]));
-            if (tempFocus > 60)
+            if (tempFocus > 3600)
+            {
+                int tempTime = (int)Mathf.Floor(tempFocus / 3600);
+                tempFocus = tempFocus % 3600;
+                return tempTime.ToString() + "h" + tempFocus.ToString() + "m";
+            }
+            else if (tempFocus > 60)
             {
                 int tempTime = (int)Mathf.Floor(tempFocus / 60);
                 tempFocus = tempFocus % 60;

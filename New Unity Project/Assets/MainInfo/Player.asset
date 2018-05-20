@@ -14,7 +14,7 @@ MonoBehaviour:
   level: 1
   stage: 2
   sector: 1
-  money: 9992000
+  money: 9880000
   percentEffect: 10
   focus: 0a000000000000000000000000000000
   skillPercent: 6400000064000000640000006400000064000000
@@ -41,7 +41,7 @@ MonoBehaviour:
     - 1
     - 1
     - 1
-    wage: 0
+    wage: -1000
     workingIn: 0
     wasWorkingIn: 0
     happiness: 100
@@ -49,7 +49,7 @@ MonoBehaviour:
     timeTillUnhappiness: 360
     focus: 10
     multiplyerFocus: -1
-    shopIteamsAvailible: 
+    shopIteamsAvailible: 00000000010000000200000003000000
     trainingAvailible: 
     trainingQ: []
     task:

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ComingSoon : MonoBehaviour {
 
-    public GameObject pannel;
+    /*
+     * temporary menu to show that the menu will be coming soon 
+     */
 
+    public GameObject pannel;
     private int time;
 
     private void Start()

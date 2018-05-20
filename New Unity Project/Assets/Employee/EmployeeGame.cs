@@ -5,6 +5,12 @@ using TMPro;
 using UnityEngine.UI;
 
 public class EmployeeGame : MonoBehaviour {
+
+    /*
+     * this is the main control for the first stage of the game. Controls the 4 work stations that will be used
+     * by the player in this stage of the game. Some of the workStations(updateStations) need to be created
+     */
+
     //create variables to hold the diffrent diplays
     public TMP_Text[] BusinessInfo;
     public TMP_Text[] titles;
@@ -65,6 +71,7 @@ public class EmployeeGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //this controles the time diplay as well as ever 24 seconds updates the add customers funtion
+        //customers are added at the begining of ever day depending on the business.customerIncrease
         float tempTime = Time.fixedTime % 12;
         int tempHours = (int)Mathf.Floor(tempTime);
         int tempSec = (int)Mathf.Floor((tempTime - tempHours) * 60);
@@ -95,8 +102,10 @@ public class EmployeeGame : MonoBehaviour {
         BusinessInfo[4].SetText(tempHours + ":" + tempSecTime + temp);
         timeAmount = tempTime;
 
+        //update any workstations that deteriorate over time
         maintainBusiness();
 
+        //update any work stations that the player is working in 
         for (short x = 0; x < 4; x++)
         {
             if (player.focus[x] > 0)
@@ -105,6 +114,7 @@ public class EmployeeGame : MonoBehaviour {
             }
         }
 
+        //update the display for the training work station
         if (business.workStations[3].orders.Count == 0)
         {
             business.workStations[3].progressText.SetText("None: --:--");
@@ -120,6 +130,7 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //updates the businesses that deteriorate over time
     private void maintainBusiness()
     {
         for (short x = 0; x < 4; x++)
@@ -149,7 +160,7 @@ public class EmployeeGame : MonoBehaviour {
                         //make new variable to hold the progress less than 1
                         tempProgress = tempProgress - tempNumber;
 
-                        //if the amount if full stop at full
+                        //if the amount is full stop at full
                         if (useThis.orders[0].wants[0] == 100)
                         {
                             tempProgress = 1;
@@ -174,6 +185,7 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //adds customers once a day(every 24 sec)
     private void addCustomers(workStation useThis){
         //if happiness is greater than 90% increase the amount of customers that come per day/ if happiness is lower that 90 decrease
         if (business.happiness > 90){
@@ -216,13 +228,14 @@ public class EmployeeGame : MonoBehaviour {
         upDateAmount(needsCustomers);
     }
     
+    //this is the template that runs each workstation depending on there type
     private void updateStations(int place, workStation useThis){
         int tempFocus;
         int tempNumber;
         float tempProgress;
         switch (useThis.type){
             case 0:
-                //set the amount of focus that the player has
+                //set the amount of focus that the player has in this work station
                 tempFocus = player.focus[place];
 
                 //creates the amount of progress in the last update taking into account the focus multiplyer
@@ -249,7 +262,7 @@ public class EmployeeGame : MonoBehaviour {
                     return;
                 }
 
-                //set the amount of focus that the player has
+                //set the amount of focus that the player has in this station
                 tempFocus = player.focus[place];
 
                 //creates the amount of progress in the last update taking into account the focus multiplyer
@@ -258,6 +271,7 @@ public class EmployeeGame : MonoBehaviour {
 
                 tempProgress = tempProgress + useThis.orders[0].progress;
 
+                //for orders if the taken value is false it means that the products for that order have not been removed
                 if (useThis.orders[0].taken == false)
                 {
                     if (business.workStations[useThis.extra[0]].orders[0].wants[1] == 0)
@@ -280,6 +294,7 @@ public class EmployeeGame : MonoBehaviour {
                     //make new variable to hold the progress less than 1
                     tempProgress = tempProgress - tempNumber;
 
+                    //this code is not very nice and i will redo it the future, basically if it went though more than once take for each time through
                     useThis.orders[0].wants[1] = useThis.orders[0].wants[1] + 1;
                 
                     if (business.workStations[useThis.extra[0]].orders[0].wants[1] == 0)
@@ -325,7 +340,7 @@ public class EmployeeGame : MonoBehaviour {
                     return;
                 }
 
-                //set the amount of focus that the player has
+                //set the amount of focus that the player has in this station
                 tempFocus = player.focus[place];
 
                 //creates the amount of progress in the last update taking into account the focus multiplyer
@@ -358,6 +373,7 @@ public class EmployeeGame : MonoBehaviour {
                     useThis.orders.RemoveAt(0);
                     addToCustomers(1);
 
+                    //this code is not very nice and i will redo it the future, basically if it went though more than once take for each time through
                     if (useThis.orders.Count == 0)
                     {
                         tempProgress = 0;
@@ -672,7 +688,7 @@ public class EmployeeGame : MonoBehaviour {
                     return;
                 }
 
-                //set the amount of focus that the player has
+                //set the amount of focus that the player has in this station 
                 tempFocus = player.focus[place];
 
                 //creates the amount of progress in the last update taking into account the focus multiplyer
@@ -680,6 +696,7 @@ public class EmployeeGame : MonoBehaviour {
                 //adds the progresses together to get the current progress
                 tempProgress = tempProgress + useThis.orders[0].progress;
 
+                //when the current training has been finished
                 if (tempProgress > 1)
                 {
                     trainingCS.finishTraining();
@@ -687,11 +704,13 @@ public class EmployeeGame : MonoBehaviour {
                     tempProgress = tempProgress - 1;
                 }
 
+                //if there is training add the progress to the next training
                 if (useThis.orders.Count != 0)
                 {
                     useThis.slider.value = tempProgress;
                     useThis.orders[0].progress = tempProgress;
                 }
+                //if there is no more training
                 else
                 {
                     useThis.slider.value = 0;
@@ -701,6 +720,7 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
     
+    //set the happiness of the business
     private void updateHappiness(){
         //calculate the current happiness of the business and change the display
         int amount = 0;
@@ -714,8 +734,9 @@ public class EmployeeGame : MonoBehaviour {
         BusinessInfo[3].SetText(business.happiness + "%");
     }
 
+    //update the text next to the progress bar
     private void upDateAmount(int place){
-        //update the display
+        //how this text is displayed depends on the workstation type, go through the workStations that we are using and update
         if (business.workStations[place].type < 2)
         {
             business.workStations[place].progressText.SetText(business.workStations[place].workName + " " + business.workStations[place].orders[0].wants[1]);
@@ -763,6 +784,7 @@ public class EmployeeGame : MonoBehaviour {
         updateHappiness();
     }
     */
+    //whenever you serve a customer add them to the amount
     private void addToCustomers(int amount){
         //add the amount of new customers to the amount already there
         business.customerServed = business.customerServed + amount;
@@ -799,11 +821,13 @@ public class EmployeeGame : MonoBehaviour {
             business.wageIncrease[0] = business.wageIncrease[0] + business.wageIncrease[1];
         }
         BusinessInfo[2].SetText(getWage((player.playerEmployee.wage * player.skillPercent[3] / 100)));
+
+        //add the cusomer to the skill points 
         mainControl.addToSkillsAmounts(amount, business.sector);
     }
 
+    //update when the player stats working in a new section
     public void selectionChange(int workArea){
-        //update when the player stats working in a new section
         RunDropdown.value = workArea;
         player.focus[player.playerEmployee.workingIn] = player.focus[player.playerEmployee.workingIn] - 10;
         player.focus[workArea] = player.focus[workArea] + 10;
@@ -818,11 +842,12 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //update the wage when changes occure
     public void upDateWage(){
-        //update the wage when changes occure
         BusinessInfo[2].SetText(getWage(player.playerEmployee.wage));
     }
 
+    //set the display for money
     private string getWage(int wage){
         //set up the string display for the wage
         var temp1 = Mathf.Floor(wage/100);
@@ -831,8 +856,8 @@ public class EmployeeGame : MonoBehaviour {
         return "$" + temp1 + "." + temp3 + temp2;
     }
 
+    //toggle the training background
     public void training(){
-        //toggle the training background
         if (trainingMenu.activeInHierarchy == true){
             trainingMenu.SetActive(false);
         }
@@ -841,9 +866,9 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //toggle the shoping background
     public void shoping()
     {
-        //toggle the shoping background
         if (shopMenu.activeInHierarchy == true)
         {
             shopMenu.SetActive(false);
@@ -854,9 +879,9 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //toggle the menu background
     public void menuChange()
     {
-        //toggle the menu background
         if (menu.activeInHierarchy == true)
         {
             menu.SetActive(false);
@@ -867,6 +892,7 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //the inputs for the input boxes for focus 
     public void firstFocusChange(string text)
     {
         changeFocusFor(0, text);
@@ -887,6 +913,7 @@ public class EmployeeGame : MonoBehaviour {
         changeFocusFor(3, text);
     }
 
+    //control that what the player is entering into the focus boxes is correct
     private void changeFocusFor(int place, string text){
         //if there is no text set the amount to 0
         int add = 0;
@@ -928,16 +955,19 @@ public class EmployeeGame : MonoBehaviour {
         }
     }
 
+    //return the focus that is not being used
     private int getFocusA(){
         //return the focus that is availible
         int temp = player.focus[0] + player.focus[1] + player.focus[2] + player.focus[3];
         return player.playerEmployee.focus - temp;
     }
 
+    //end the game
     public void QuitGame(){
         Application.Quit();
     }
 
+    //save the game
     public void SaveGame(){
 
     }

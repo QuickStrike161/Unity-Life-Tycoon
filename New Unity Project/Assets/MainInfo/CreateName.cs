@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateName : MonoBehaviour {
+    //name database so that you can choose from a variety of names
     private string[] names = new string[] {"Emma","Olivia","Ava","Sophia","Isabella","Mia","Charlotte","Abigail","Emily","Harper",
     "Amelia","Evelyn","Elizabeth","Sofia","Madison","Avery","Ella","Scarlett","Grace","Chloe",
     "Victoria","Riley","Aria","Lily","Aubrey","Zoey","Penelope","Lillian","Addison","Layla",
@@ -202,7 +203,9 @@ public class CreateName : MonoBehaviour {
     "Greysen","Lyric","Coleman","Dominique","Foster","Gauge","Harris","Kymani","Leif","Agustin",
     "Keanu","Konner","Brent","Immanuel","Benicio","Ernest","Merrick","Yisroel","Amare","Jad",
     "Lyle","Creed","Krish","Maddux","Camilo","Giancarlo","Jamarion","Steve","Anton","Jamar",
-    "Jeremias","Ralph","Wesson","Bode","Braeden","Brenden","Eliezer","Davian","Gus","Jonathon"};//
+    "Jeremias","Ralph","Wesson","Bode","Braeden","Brenden","Eliezer","Davian","Gus","Jonathon"};
+
+    //returns a random name
     public string getName()
     {
         int nameSelect = Random.Range(0, names.Length);

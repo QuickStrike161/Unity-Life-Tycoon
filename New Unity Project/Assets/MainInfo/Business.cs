@@ -8,6 +8,11 @@ using TMPro;
 public class Business : ScriptableObject
 {
 
+    /*
+     * This is the main object that we will be using, I want to create lots of diffrent businesses that will
+     * make up the towns and cities. This containes the information that you need to know about the business
+     */
+
     public new string name;
     public string servingName;
     public int sector;
@@ -54,6 +59,7 @@ public class Business : ScriptableObject
     }
 }
 
+//create a varriety of types of businesses within the area so for FastFood you could have MacDonalds/KFC/DairyQueen...
 [System.Serializable]
 public class businessTypes
 {
@@ -72,6 +78,7 @@ public class businessTypes
     }
 }
 
+//create the menuIteams for each business type
 [System.Serializable]
 public class menuIteams
 {
@@ -94,6 +101,7 @@ public class menuIteams
     }
 }
 
+//create the ingredients that are needed for each menuIteam, this list is stored within the business and the menuIteams referance locations
 [System.Serializable]
 public class ingredients
 {
@@ -108,6 +116,7 @@ public class ingredients
     }
 }
 
+//create the information needed about each employee working within the business
 [System.Serializable]
 public class employee
 {
@@ -144,6 +153,7 @@ public class employee
     }
 }
 
+//this adds variety to the businesses allowing them to pick from the workStation types depening on the business
 [System.Serializable]
 public class workStation
 {
@@ -199,6 +209,7 @@ public class workStation
     }
 }
 
+//what the cusomer wants from the workStation or what the workStation contains 
 [System.Serializable]
 public class order
 {
@@ -216,6 +227,7 @@ public class order
     }
 }
 
+//iteams used in the shop menu's makes the player/employees faster
 [System.Serializable]
 public class trainingIteam
 {
@@ -228,6 +240,7 @@ public class trainingIteam
     public int[] affectAreas;
 }
 
+//training used in the training menu's makes the player/employees faster
 [System.Serializable]
 public class shopIteam
 {
