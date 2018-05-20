@@ -1,0 +1,1879 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbc14cc42a9c734f968f56d4f8a0060, type: 3}
+  m_Name: FastFood
+  m_EditorClassIdentifier: 
+  name: FastFood
+  servingName: Customers Served
+  sector: 1
+  customerServed: 0
+  customerNeeded: 2500
+  wage: 1000
+  happiness: 100
+  storage: 1000
+  storageDefault: 1000
+  type: 0
+  menuIteamsAmount: 5
+  menuIteamsAmountDefault: 5
+  negativeHappiness: 0000000000000000000000000000000000000000
+  wageIncrease: c8000000c8000000
+  customerIncrease: 3.8974345
+  customerIncreaseDefault: 2
+  businessType:
+    name: Burger Place
+    percentIntrest: 100
+    percentIntrestDefault: 100
+    menuIteams: []
+  businessList:
+  - name: BurgerShop
+    percentIntrest: 100
+    percentIntrestDefault: 100
+    menuIteams:
+    - name: Burger
+      ingredients:
+      - burger
+      - bun
+      - condiments
+      percentIntrest: 100
+      percentIntrestDefault: 100
+      price: 500
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: burger
+        price: 500
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+  workStations:
+  - name: 'Register:'
+    workName: 'Customers:'
+    type: 2
+    timeMain: 40
+    EmployeeSpace: 0
+    spaceDefault: 8
+    extra: 01000000
+    orders:
+    - name: Jessa
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Holden
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Selena
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Chana
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ahmir
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Macy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Noor
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ember
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Miah
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Maddison
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Sergio
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Mya
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Skylar
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Charles
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kensley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Annabel
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Marie
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Johnny
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jerry
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Willa
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Karen
+      wants: 00000000
+      progress: 0
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Grill:'
+    workName: 'Burgers:'
+    type: 0
+    timeMain: 60
+    EmployeeSpace: 0
+    spaceDefault: 10
+    extra: 
+    orders:
+    - name: 'Burgers:'
+      wants: 0000000000000000
+      progress: 0
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Store:'
+    workName: 'Filth Amount:'
+    type: 4
+    timeMain: 50
+    EmployeeSpace: -1
+    spaceDefault: -1
+    extra: 
+    orders:
+    - name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Training:'
+    workName: 'None:'
+    type: 7
+    timeMain: 100
+    EmployeeSpace: -1
+    spaceDefault: -1
+    extra: 
+    orders: []
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  employeesInfo:
+  - name: Brittany
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 3
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 159
+    timeTillUnhappiness: 201
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Leandro
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 159
+    timeTillUnhappiness: 201
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Jacoby
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 88
+    timeTillUnhappiness: 272
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Griffin
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Erica
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Lola
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Avery
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Morgan
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Aryana
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 87
+    timeTillUnhappiness: 273
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Orion
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Emilia
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Wesson
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Ally
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Vada
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Brittany
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 86
+    timeTillUnhappiness: 274
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Aldo
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Westley
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Robert
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Melina
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 1
+    wasWorkingIn: 1
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Roman
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Keagan
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 85
+    timeTillUnhappiness: 275
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Seamus
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Julissa
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Clara
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Edward
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Kairi
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Shelby
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 84
+    timeTillUnhappiness: 276
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Evelynn
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 83
+    timeTillUnhappiness: 277
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Aleah
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 83
+    timeTillUnhappiness: 277
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Rhett
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 83
+    timeTillUnhappiness: 277
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Galilea
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 83
+    timeTillUnhappiness: 277
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Katalina
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 83
+    timeTillUnhappiness: 277
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Koda
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 82
+    timeTillUnhappiness: 278
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Mina
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 82
+    timeTillUnhappiness: 278
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Tomas
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 82
+    timeTillUnhappiness: 278
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Mack
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 82
+    timeTillUnhappiness: 278
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Izabella
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 82
+    timeTillUnhappiness: 278
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Javier
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 80
+    timeTillUnhappiness: 280
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Milani
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 80
+    timeTillUnhappiness: 280
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Maddox
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 80
+    timeTillUnhappiness: 280
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Duncan
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 80
+    timeTillUnhappiness: 280
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Franklin
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 80
+    timeTillUnhappiness: 280
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Gilbert
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 79
+    timeTillUnhappiness: 281
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Mikaela
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 79
+    timeTillUnhappiness: 281
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Maren
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 78
+    timeTillUnhappiness: 282
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Sharon
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 78
+    timeTillUnhappiness: 282
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Adonis
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 78
+    timeTillUnhappiness: 282
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Celia
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 78
+    timeTillUnhappiness: 282
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Ramiro
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 78
+    timeTillUnhappiness: 282
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Sienna
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 77
+    timeTillUnhappiness: 283
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Madisyn
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 77
+    timeTillUnhappiness: 283
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Adeline
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 77
+    timeTillUnhappiness: 283
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  - name: Charleigh
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 2
+    wasWorkingIn: 2
+    happiness: 100
+    timeWorking: 77
+    timeTillUnhappiness: 283
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 'Filth Amount:'
+      wants: 00000000
+      progress: 0.0013229587
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
+  iteamList:
+  - name: Broom
+    description: Helps you cleen
+    active: 1
+    cost: 100
+    affectAmount: 10
+    follower: -1
+    affectAreas: 02000000
+  - name: Pan
+    description: Helps you cook
+    active: 1
+    cost: 300
+    affectAmount: 30
+    follower: 4
+    affectAreas: 01000000
+  - name: Timer
+    description: Helps you cook multitask better
+    active: 1
+    cost: 800
+    affectAmount: 20
+    follower: -1
+    affectAreas: 00000000010000000200000003000000
+  - name: NameTag
+    description: Helps you serve customers
+    active: 1
+    cost: 200
+    affectAmount: 20
+    follower: -1
+    affectAreas: 00000000
+  - name: BetterPan
+    description: Helps you cook
+    active: 0
+    cost: 400
+    affectAmount: 40
+    follower: -1
+    affectAreas: 00000000
+  trainingList:
+  - name: FirstAid1
+    description: accidents happen this will help
+    active: 1
+    cost: 600
+    affectAmount: 20
+    follower: 1
+    affectAreas: 000000000100000002000000
+  - name: FirstAid2
+    description: accidents happen this will help
+    active: 0
+    cost: 900
+    affectAmount: 30
+    follower: -1
+    affectAreas: 000000000100000002000000
+  - name: Reading
+    description: Will help you train
+    active: 1
+    cost: 400
+    affectAmount: 40
+    follower: -1
+    affectAreas: 03000000
+  - name: PanUse
+    description: will help you cook
+    active: 1
+    cost: 100
+    affectAmount: 10
+    follower: -1
+    affectAreas: 01000000
+  - name: Multitasking
+    description: this can always help
+    active: 1
+    cost: 1600
+    affectAmount: 40
+    follower: -1
+    affectAreas: 00000000010000000200000003000000
+  ingredientList:
+  - name: burger
+    price: 500
+    stored: 0
+    amountPerUse: 1
+  - name: bun
+    price: 30
+    stored: 0
+    amountPerUse: 1
+  - name: condiments
+    price: 100
+    stored: 0
+    amountPerUse: 0.1
