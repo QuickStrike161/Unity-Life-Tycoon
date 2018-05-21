@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2baeda58e3cac534492b89f28cbc7ccd, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  level: 1
+  stage: 1
+  sector: 1
+  money: 10057000
+  percentEffect: 10
+  focus: 0a000000000000000000000000000000
+  skillPercent: 6400000064000000640000006400000064000000
+  skillNeeded: 0a0000000a0000000a0000000a0000000a000000
+  universeControl: 0
+  decreaseAmount: 1
+  skillPoints:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  savedGame: 1
+  business: {fileID: 11400000, guid: a5f3769e6b4e1204db3c8a3b20f1dd9b, type: 2}
+  playerEmployee:
+    name: player
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 0
+    timeTillUnhappiness: 360
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}

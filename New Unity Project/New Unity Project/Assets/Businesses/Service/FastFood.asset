@@ -1,0 +1,853 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbc14cc42a9c734f968f56d4f8a0060, type: 3}
+  m_Name: FastFood
+  m_EditorClassIdentifier: 
+  name: FastFood
+  servingName: Customers Served
+  sector: 1
+  customerServed: 0
+  customerNeeded: 2500
+  wage: 1000
+  happiness: 45
+  storage: 1000
+  storageDefault: 1000
+  type: 0
+  menuIteamsAmount: 5
+  menuIteamsAmountDefault: 5
+  negativeHappiness: 0500000000000000320000000000000000000000
+  wageIncrease: c8000000c8000000
+  customerIncrease: 60.6
+  customerIncreaseDefault: 2
+  businessType:
+    name: Burger Place
+    percentIntrest: 100
+    percentIntrestDefault: 100
+    menuIteams: []
+  businessList:
+  - name: BurgerShop
+    percentIntrest: 100
+    percentIntrestDefault: 100
+    menuIteams:
+    - name: Burger
+      ingredients:
+      - burger
+      - bun
+      - condiments
+      percentIntrest: 100
+      percentIntrestDefault: 100
+      price: 500
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: burger
+        price: 500
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+  workStations:
+  - name: 'Register:'
+    workName: 'Customers:'
+    type: 2
+    timeMain: 40
+    EmployeeSpace: 8
+    spaceDefault: 8
+    extra: 01000000
+    orders:
+    - name: Brody
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Celia
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Zion
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ayden
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Keenan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Brenna
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Mikael
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Hugh
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Brantlee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Alijah
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kamryn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Quinn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kenna
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Darrell
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Shiloh
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jaelyn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Chaim
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Brinley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jaxon
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Thea
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Aylin
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jaylynn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Salma
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Raven
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Colin
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Octavia
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Serenity
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Xander
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Yahya
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Frank
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Mitchell
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Maxim
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Gracie
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Callie
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Noel
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Sutton
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Galilea
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Tadeo
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Collins
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Nancy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Karson
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lexi
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lilian
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Hadassah
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Azaria
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Gerardo
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Drew
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Oliver
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kate
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Erin
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Evalyn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Joselyn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Maxim
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Aidan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Wyatt
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Evelynn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Angelica
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Tony
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Joy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Theodore
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Adan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Johanna
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Brandon
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Rylan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Gael
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Liberty
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Devin
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Zaid
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ignacio
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kynlee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Eden
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Konner
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Nadia
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kolby
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Matthew
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Aitana
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lydia
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Joe
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Apollo
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Yusuf
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Barbara
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Dante
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kailee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Judah
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Whitney
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Emmy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Seth
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lyric
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Javon
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Dexter
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Tobias
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Saige
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Oakley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jair
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kellen
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Aubrielle
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jadiel
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Hadley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Felix
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Jillian
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Gordon
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kora
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Dante
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Malik
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Elena
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Monserrat
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Bryleigh
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lilith
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Greta
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Elise
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Nathan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Bethany
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Emmy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Angel
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Emersyn
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Charlotte
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: River
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ameer
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Shelby
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kailey
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Callum
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Dorothy
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Amiya
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Rocco
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Josue
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lorelai
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kynlee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Francisco
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lexie
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Khalil
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Adrienne
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kalani
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Brylee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ryland
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Israel
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Lennon
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Davina
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ellis
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Daxton
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Anton
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Amber
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Ameer
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Giana
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Finnegan
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Coraline
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Chad
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kaison
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kynlee
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Addison
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Dorian
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Phoenix
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Draven
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Mario
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Azariah
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Keith
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Gracie
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Angelique
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Kinsley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Calvin
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Adley
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Misael
+      wants: 00000000
+      progress: 0
+      taken: 0
+    - name: Karen
+      wants: 00000000
+      progress: 0
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Grill:'
+    workName: 'Burgers:'
+    type: 0
+    timeMain: 60
+    EmployeeSpace: 10
+    spaceDefault: 10
+    extra: 
+    orders:
+    - name: 'Burgers:'
+      wants: 0000000000000000
+      progress: 0
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Store:'
+    workName: 'Filth Amount:'
+    type: 4
+    timeMain: 50
+    EmployeeSpace: -1
+    spaceDefault: -1
+    extra: 
+    orders:
+    - name: 'Filth Amount:'
+      wants: 53000000
+      progress: 0.2724117
+      taken: 0
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  - name: 'Training:'
+    workName: 'None:'
+    type: 7
+    timeMain: 100
+    EmployeeSpace: -1
+    spaceDefault: -1
+    extra: 
+    orders: []
+    slider: {fileID: 0}
+    titleText: {fileID: 0}
+    progressText: {fileID: 0}
+    focuseInput: {fileID: 0}
+  employeesInfo: []
+  iteamList:
+  - name: Broom
+    description: Helps you cleen
+    active: 1
+    cost: 100
+    affectAmount: 10
+    follower: -1
+    affectAreas: 02000000
+  - name: Pan
+    description: Helps you cook
+    active: 1
+    cost: 300
+    affectAmount: 30
+    follower: 4
+    affectAreas: 01000000
+  - name: Timer
+    description: Helps you cook multitask better
+    active: 1
+    cost: 800
+    affectAmount: 20
+    follower: -1
+    affectAreas: 00000000010000000200000003000000
+  - name: NameTag
+    description: Helps you serve customers
+    active: 1
+    cost: 200
+    affectAmount: 20
+    follower: -1
+    affectAreas: 00000000
+  - name: BetterPan
+    description: Helps you cook
+    active: 0
+    cost: 400
+    affectAmount: 40
+    follower: -1
+    affectAreas: 00000000
+  trainingList:
+  - name: FirstAid1
+    description: accidents happen this will help
+    active: 1
+    cost: 600
+    affectAmount: 20
+    follower: 1
+    affectAreas: 000000000100000002000000
+  - name: FirstAid2
+    description: accidents happen this will help
+    active: 0
+    cost: 900
+    affectAmount: 30
+    follower: -1
+    affectAreas: 000000000100000002000000
+  - name: Reading
+    description: Will help you train
+    active: 1
+    cost: 400
+    affectAmount: 40
+    follower: -1
+    affectAreas: 03000000
+  - name: PanUse
+    description: will help you cook
+    active: 1
+    cost: 100
+    affectAmount: 10
+    follower: -1
+    affectAreas: 01000000
+  - name: Multitasking
+    description: this can always help
+    active: 1
+    cost: 1600
+    affectAmount: 40
+    follower: -1
+    affectAreas: 00000000010000000200000003000000
+  ingredientList:
+  - name: burger
+    price: 500
+    stored: 0
+    amountPerUse: 1
+  - name: bun
+    price: 30
+    stored: 0
+    amountPerUse: 1
+  - name: condiments
+    price: 100
+    stored: 0
+    amountPerUse: 0.1
