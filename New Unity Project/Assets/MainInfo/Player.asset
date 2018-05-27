@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   level: 1
-  stage: 2
+  stage: 1
   sector: 1
   money: 9992000
   percentEffect: 10
