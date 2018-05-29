@@ -576,7 +576,11 @@ public class ManagerGame : MonoBehaviour {
         for (int x = 0; x < tempCustomers; x++)
         {
             int[] want = new int[] { 0 };
-            order order = new order(mainControl.getName(), want, false);
+            int ID = Random.Range(0, 3);
+            wants want1 = new wants(ID);
+            want1.GetWant();
+            order order = new order(mainControl.getName(), want1, false);
+            //order order = new order(mainControl.getName(), want, false);
             useThis.orders.Add(order);
         }
         upDateAmount(needsCustomers, null);
