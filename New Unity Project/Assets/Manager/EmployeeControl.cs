@@ -5,6 +5,11 @@ using TMPro;
 using UnityEngine.UI;
 
 public class EmployeeControl : MonoBehaviour {
+
+    /*
+     * this menu displays employee information for the player and allows the player to move the employee to a new work station
+     */ 
+
     public TMP_ColorGradient regularColor;
     public TMP_ColorGradient highlitedColor;
     public TMP_Text[] titles;
@@ -27,11 +32,13 @@ public class EmployeeControl : MonoBehaviour {
         setUp();
     }
 
+    //update the displayes based on the employee that has been selected
     public void setUp()
     {
         raiseFor = 0;
         business = player.business;
         place = managerGame.getSelectedEmployee();
+        //make the title of the workstation that the employee is working in blue
         for (short x = 0; x < 4; x++)
         {
             if (business.employeesInfo[place].workingIn == x)
@@ -48,6 +55,8 @@ public class EmployeeControl : MonoBehaviour {
         employeeText[1].text = getWage(business.employeesInfo[place].wage);
         employeeText[2].text = getTimeWorking(business.employeesInfo[place].timeWorking);
         employeeText[3].text = business.workStations[business.employeesInfo[place].wasWorkingIn].name;
+
+        //set the amount in percent that the training and shop have been completed
         for (short x = 0; x < 4; x++)
         {
             titles[x].text = business.workStations[x].name;
@@ -60,10 +69,9 @@ public class EmployeeControl : MonoBehaviour {
 
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        //create a loop that is called ever secound
+
+    //create a loop that is called ever secound
+    void Update () {
         float tempTime = Time.fixedTime % 1;
         if (tempTime < timeSec)
         {
@@ -72,6 +80,7 @@ public class EmployeeControl : MonoBehaviour {
         timeSec = tempTime;
     }
 
+    //when the raise button has been click increase the employees salery, and increase there hapiness
     public void raise()
     {
         if (raiseFor == 0)
@@ -93,6 +102,7 @@ public class EmployeeControl : MonoBehaviour {
         
     }
 
+    //controls the percent raise that has been placed in the input feild is within the limits
     public void raiseChange(string amount)
     {
         if (amount.Length == 0)
@@ -112,16 +122,19 @@ public class EmployeeControl : MonoBehaviour {
         raiseAmount.text = temp.ToString();
         raiseFor = temp;
     }
-
+    
+    //update when the employees workstation has been changed
     public void changeWorkStation(int station)
     {
         if (station == business.employeesInfo[place].workingIn)
         {
             return;
         }
-
+        //change the color of the staion that he is working in now
         titles[station].colorGradientPreset = highlitedColor;
         titles[business.employeesInfo[place].workingIn].colorGradientPreset = regularColor;
+        
+        //set the employees new workstation and make the button interactable - false if there is no more space in that work station
         business.employeesInfo[place].workingIn = station;
         if (station != 3)
         {
@@ -145,9 +158,12 @@ public class EmployeeControl : MonoBehaviour {
             business.employeesInfo[place].wasWorkingIn = station;
         }
         employeeText[3].text = business.workStations[business.employeesInfo[place].wasWorkingIn].name;
+
+        //let the managerGame know that the employee has been moved
         managerGame.changeEmployeeStation(place, station);
     }
 
+    //return the percent of shop/training that has been finished for the selected employee
     private int getPercentDone(int station, bool focus)
     {
         if (focus == true)
@@ -176,6 +192,7 @@ public class EmployeeControl : MonoBehaviour {
         }
     }
 
+    //return the string for the employee wage
     private string getWage(int wage)
     {
         //set up the string display for the wage
@@ -185,6 +202,7 @@ public class EmployeeControl : MonoBehaviour {
         return "$" + temp1 + "." + temp3 + temp2;
     }
 
+    //create a string to represent the time that an employee has been working 
     private string getTimeWorking(int time)
     {
         int tempYear = (int)Mathf.Floor(time / 8766);

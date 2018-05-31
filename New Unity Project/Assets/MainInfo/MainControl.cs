@@ -55,6 +55,9 @@ public class MainControl : MonoBehaviour {
         GeneralInfoText[2].SetText(player.business.businessList[player.business.type].name);
         GeneralInfoText[4].SetText(player.universeControl.ToString());
 
+        //temp only so that the right business is being used
+        player.business.businessType = player.business.businessList[0];
+
         timeSec = 0;
     }
 

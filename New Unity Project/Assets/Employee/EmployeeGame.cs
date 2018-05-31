@@ -203,7 +203,7 @@ public class EmployeeGame : MonoBehaviour {
 
         //update the hapiness based on customers waiting
         int percent = (int)Mathf.Floor(useThis.orders.Count / 20);
-        if (percent < 1){
+        if (percent == 0){
             business.negativeHappiness[needsCustomers] = business.negativeHappiness[needsCustomers] - 1;
             if (business.negativeHappiness[needsCustomers] < 0){
                 business.negativeHappiness[needsCustomers] = 0;
@@ -724,7 +724,7 @@ public class EmployeeGame : MonoBehaviour {
     private void updateHappiness(){
         //calculate the current happiness of the business and change the display
         int amount = 0;
-        for (short x = 1; x < 5; x++){
+        for (short x = 0; x < 4; x++){
             amount = amount + business.negativeHappiness[x]; 
         }
         if (amount > 100){

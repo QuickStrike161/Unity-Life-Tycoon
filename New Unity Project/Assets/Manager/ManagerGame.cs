@@ -6,6 +6,11 @@ using TMPro;
 
 public class ManagerGame : MonoBehaviour {
 
+    /*
+     * this is the main control for the second stage of the game, it controls the workstations,
+     * and the work that employees do within the stations
+     */ 
+
     public GameObject[] contentList;
     public RectTransform[] topControl;
     public Image employeeVisual;
@@ -39,6 +44,7 @@ public class ManagerGame : MonoBehaviour {
     void Start () {
         business = player.business;
 
+        //recreate the employees from the saved data
         for (short x = 0; x < business.employeesInfo.Count; x++)
         {
             newEmployee(business.employeesInfo[x].name, x, business.employeesInfo[x].workingIn);
@@ -75,7 +81,8 @@ public class ManagerGame : MonoBehaviour {
         businessInfo[5].SetText("0:00 AM");
         timeAm_Pm = false;
         timeAmount = 0;
-
+        
+        //for the menuIteam's make a connection between the ingredients and the ingredients that the menuIteams need
         foreach (menuIteams menuIteam in business.businessList[0].menuIteams)
         {
             menuIteam.ingredientsList = new ingredients[menuIteam.ingredients.Length];
@@ -148,14 +155,17 @@ public class ManagerGame : MonoBehaviour {
 
         }
         
+        //run the employees
         for (short x = 0; x < business.employeesInfo.Count; x++)
         {
             updateStations(business.employeesInfo[x].workingIn, business.workStations[business.employeesInfo[x].workingIn], business.employeesInfo[x], player.decreaseAmount, x);
         }
+        //run any maintain workstations 
         maintainBusiness();
 
     }
 
+    //run any maintain workStaions 
     private void maintainBusiness()
     {
         for (short x = 0; x < 4; x++)
@@ -203,6 +213,8 @@ public class ManagerGame : MonoBehaviour {
                         }
                         upDateAmount(x, null);
                     }
+
+                    //update the displays of the employees that are working in this staion 
                     foreach(employee tempEmployee in business.employeesInfo)
                     {
                         if(tempEmployee.workingIn == x)
@@ -217,11 +229,14 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //update the employees every second for there wage,time working
     public void employeeEverSecond()
     {
         for (short x = 0; x < business.employeesInfo.Count; x++)
         {
+            //take the employees wage from the players money
             mainControl.spendMoney(business.employeesInfo[x].wage);
+            //update the employees time working
             business.employeesInfo[x].timeWorking = business.employeesInfo[x].timeWorking + 1;
             if (business.employeesInfo[x].timeTillUnhappiness == 0)
             {
@@ -241,6 +256,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //set the size of the employee template so that it fits nicely in the lists
     public void changeEmployeeSize(int place)
     {
         if (place == -1)
@@ -256,6 +272,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //change the station that an employee is working in 
     public void changeEmployeeStation(int place, int station)
     {
         buttons[place].transform.SetParent(contentList[station].transform, false);
@@ -263,6 +280,7 @@ public class ManagerGame : MonoBehaviour {
         upDateTitles();
     }
 
+    //update the information at the bottom of the lists depending on the station type
     private void upDateAmount(int place, employee employee)
     {
         //update the display
@@ -307,10 +325,13 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //create or recreate an employee's visual and add them into the game 
     public void newEmployee(string name, int place, int location)
     {
+        //if the employee has not been created before
         if (place == -1)
         {
+            //if there is no name selected create a name
             string nameFor = name;
             if (name == "")
             {
@@ -318,8 +339,15 @@ public class ManagerGame : MonoBehaviour {
             }
             business.employeesInfo.Add(new employee(nameFor, location, business.wage));
             place = business.employeesInfo.Count - 1;
+
+            //update the workstation space
+            if (business.workStations[location].EmployeeSpace != -1)
+            {
+                business.workStations[location].EmployeeSpace = business.workStations[location].EmployeeSpace - 1;
+            }
         }
 
+        //set up the images
         Image button = Instantiate(employeeVisual) as Image;
         buttons.Add(button);
         button.gameObject.SetActive(true);
@@ -327,13 +355,10 @@ public class ManagerGame : MonoBehaviour {
         button.transform.SetParent(contentList[location].transform, false);
         upDateEmployeeVisual(business.employeesInfo[place], true);
         upDateTitles();
-        if (business.workStations[location].EmployeeSpace != -1)
-        {
-            business.workStations[location].EmployeeSpace = business.workStations[location].EmployeeSpace - 1;
-        }
         changeEmployeeSize(place);
     }
 
+    //select an employee and open the employee menu
     public void selectEmployee(int place)
     {
         currentlySelected = place;
@@ -342,6 +367,7 @@ public class ManagerGame : MonoBehaviour {
         runMenu.SetActive(true);
     }
 
+    //unselect an employee and close the employee menu
     public void backFromSelectEmployee()
     {
         if (currentlySelected == -1)
@@ -358,11 +384,13 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //return the employee that is currently selected
     public int getSelectedEmployee()
     {
         return currentlySelected;
     }
 
+    //update the employee visual within the lists
     public void upDateEmployeeVisual(employee employee, bool all)
     {
         if (all == true)
@@ -380,6 +408,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //update the titles for the workstations
     private void upDateTitles()
     {
         for (short x = 0; x < 4; x++)
@@ -395,6 +424,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //return the string for a wage
     private string getWage(int wage)
     {
         //set up the string display for the wage
@@ -404,6 +434,7 @@ public class ManagerGame : MonoBehaviour {
         return "$" + temp1 + "." + temp3 + temp2;
     }
 
+    //change the workstation that the player is running
     public void changeAreaOfWork(int workArea)
     {
         //update when the player stats working in a new section
@@ -421,6 +452,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
     
+    //toggle the training menues
     public void training()
     {
         //toggle the training background
@@ -453,6 +485,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //toggle the shoping menues
     public void shoping()
     {
         //toggle the shoping background
@@ -485,6 +518,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //toggle the menu
     public void menuChange()
     {
         //toggle the menu background
@@ -498,6 +532,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //update happiness and add customers to the workstation that works with customers
     private void addCustomers(workStation useThis)
     {
         //if happiness is greater than 90% increase the amount of customers that come per day/ if happiness is lower that 90 decrease
@@ -541,12 +576,16 @@ public class ManagerGame : MonoBehaviour {
         for (int x = 0; x < tempCustomers; x++)
         {
             int[] want = new int[] { 0 };
-            order order = new order(mainControl.getName(), want, false);
+            int ID = Random.Range(0, 3);
+            wants want1 = new wants(ID);
+            want1.GetWant();
+            order order = new order(mainControl.getName(), want1, false);
             useThis.orders.Add(order);
         }
         upDateAmount(needsCustomers, null);
     }
 
+    //update the happiness of the business and happiness diplay
     private void updateHappiness()
     {
         //calculate the current happiness of the business and change the display
@@ -563,6 +602,7 @@ public class ManagerGame : MonoBehaviour {
         businessInfo[3].SetText(business.happiness + "%");
     }
     
+    //run the work stations for each employee - needs work
     private void updateStations(int station, workStation useThis, employee employee, float decreaseAmount, int place)
     {
         int tempFocus;
@@ -1036,6 +1076,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //this is run when a customer has been served updates the served amount and adds skill points to main control
     private void addToCustomers(int amount)
     {
         //add the amount of new customers to the amount already there
@@ -1066,9 +1107,11 @@ public class ManagerGame : MonoBehaviour {
             business.workStations[business.usesGoods].progress = tempProgress;
         }*/
 
+        //add points for skills to main control 
         mainControl.addToSkillsAmounts(amount, business.sector);
     }
 
+    //toggle moreInfo menu
     public void moreInfoSelect(int station)
     {
         if (station == -1)
@@ -1084,6 +1127,7 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    //set the work of an employee based on there hapiness 
     public float getWorkForHappiness(employee employee)
     {
         float temp = employee.happiness + 10;
@@ -1094,6 +1138,7 @@ public class ManagerGame : MonoBehaviour {
         return temp / 100F;
     }
 
+    //extra code dont know if we will need
     /*
 
     private void setHappinessForUses(int amount)

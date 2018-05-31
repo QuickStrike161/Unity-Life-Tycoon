@@ -6,6 +6,12 @@ using TMPro;
 
 public class ShopStage2 : MonoBehaviour
 {
+
+    /*
+     * this controls the the players stage 2 shop, as well as creating orders, orders have to be added still. This also
+     * lets the player purchase any iteams that they did not in the first stage.
+     */
+
     public TMP_Text[] infoText;
     public TMP_Dropdown areaFocus;
     public PlayerInfo player;
@@ -21,6 +27,8 @@ public class ShopStage2 : MonoBehaviour
     private string nameForUse;
     private Business business;
     private List<Image> ImageList = new List<Image> { };
+    
+    //set up the drop down for focus area and add trainings to player if they have not been added before
     void Start()
     {
         business = player.business;
@@ -50,8 +58,10 @@ public class ShopStage2 : MonoBehaviour
         setUp();
     }
 
+    //remove previus images and set up for use
     public void setUp()
     {
+        //get rid of any images that were there from before
         foreach (Image image in ImageList)
         {
             contentList[image.GetComponent<EmployeeShopTemplate>().location].transform.DetachChildren();
@@ -59,6 +69,7 @@ public class ShopStage2 : MonoBehaviour
         }
         ImageList = new List<Image> { };
 
+        //add images for purchasing focus
         if (player.playerEmployee.focus < 110)
         {
             Image visual = Instantiate(shopVisual) as Image;
@@ -66,6 +77,7 @@ public class ShopStage2 : MonoBehaviour
             ImageList.Add(visual);
         }
 
+        //add images for the availible training
         for (int x = 0; x < player.playerEmployee.shopIteamsAvailible.Count; x++)
         {
             Image visual = Instantiate(shopVisual) as Image;
@@ -77,6 +89,7 @@ public class ShopStage2 : MonoBehaviour
         hireVisualUpdate();
     }
 
+    //update the buttons to interactable if there is enough money and not if there is not enough money 
     void Update()
     {
         hireVisualUpdate();
@@ -87,17 +100,20 @@ public class ShopStage2 : MonoBehaviour
         }
     }
 
+    //update the visual list so everything is in the correct place
     private void listVisualUpdate()
     {
-        changeTrainingSize();
+        changeItemSize();
         foreach (Image image in ImageList)
         {
+            //if there is not focus area set all images to visable
             if (focusArea == 0)
             {
                 image.transform.SetParent(contentList[0].transform, false);
                 image.gameObject.SetActive(true);
                 image.GetComponent<EmployeeShopTemplate>().location = 0;
             }
+            //if there is a focus area only make the relavent images visable
             else
             {
                 if (changesArea(image.GetComponent<EmployeeShopTemplate>().shopIteam, focusArea - 1) == true)
@@ -117,6 +133,7 @@ public class ShopStage2 : MonoBehaviour
         updateInfo();
     }
 
+    //if the player has no money make it so they can not hire new employees
     private void hireVisualUpdate()
     {
         infoText[1].SetText("Hire: " + nameForUse);
@@ -130,6 +147,7 @@ public class ShopStage2 : MonoBehaviour
         }
     }
 
+    //update the name that is being used for hiring employee
     public void changeName(string name)
     {
         if (name.Length == 0)
@@ -143,13 +161,16 @@ public class ShopStage2 : MonoBehaviour
         hireVisualUpdate();
     }
 
+    //if a item is purchased add its benifits and activate any followers
     public void clicked(int iteam)
     {
+        //if it is focus
         if (iteam == -1)
         {
             player.playerEmployee.focus = player.playerEmployee.focus + 1;
             mainControl.spendMoney(50000);
         }
+        //if it is an item 
         else
         {
             player.playerEmployee.shopIteamsAvailible.Remove(iteam);
@@ -168,12 +189,14 @@ public class ShopStage2 : MonoBehaviour
         setUp();
     }
 
+    //update the info at the bottom of the item list
     private void updateInfo()
     {
         infoText[2].SetText("Past Items Available: " + contentList[0].transform.childCount);
     }
 
-    public void changeTrainingSize()
+    //set the size of the iteam display
+    public void changeItemSize()
     {
         for (short x = 0; x < ImageList.Count; x++)
         {
@@ -181,12 +204,14 @@ public class ShopStage2 : MonoBehaviour
         }
     }
 
+    //change the focus area and update the list
     public void changeFocusArea(int area)
     {
         this.focusArea = area;
         listVisualUpdate();
     }
 
+    //return true if the item effects the focus area
     private bool changesArea(int place, int area)
     {
         if (place == -1)
@@ -207,6 +232,7 @@ public class ShopStage2 : MonoBehaviour
         }
     }
 
+    //hire a new employee and place them in the first availible workStation
     public void hireEmployee()
     {
         int place = -1;

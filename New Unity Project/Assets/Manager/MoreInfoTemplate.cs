@@ -6,6 +6,10 @@ using TMPro;
 
 public class MoreInfoTemplate : MonoBehaviour
 {
+    /*
+     * controls the moreInfo template so that you can select the image to get information about the workstation 
+     */
+
 
     [SerializeField]
     public TMP_Text NameText;
@@ -14,14 +18,15 @@ public class MoreInfoTemplate : MonoBehaviour
     public Button button;
     public MoreInfoControl moreInfoControl;
     public PlayerInfo player;
-    public employee employee;
+    public employee employee;//will referance and employee or order that it is displaying
     public order order;
-    public int place;
-    public bool on;
+    public int place;// the location in the imageList
+    public bool on;//if the button is active or not
     public TMP_ColorGradient[] colors;
 
     private Business business;
 
+    //set up the needed information 
     public void setUp(int place, employee employee, bool on)
     {
         this.place = place;
@@ -32,6 +37,7 @@ public class MoreInfoTemplate : MonoBehaviour
         SelectedText.SetText("Select");
     }
 
+    //tell more info control that the button was clicked
     public void onClick()
     {
         if (on == true)
@@ -40,6 +46,7 @@ public class MoreInfoTemplate : MonoBehaviour
         }
     }
 
+    //change the color if the button is selected
     public void setColor(bool selected)
     {
         if (on == true)

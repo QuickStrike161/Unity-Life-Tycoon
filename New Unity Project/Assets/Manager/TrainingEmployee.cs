@@ -6,6 +6,12 @@ using TMPro;
 
 public class TrainingEmployee : MonoBehaviour
 {
+
+    /*
+     * This script controls the training for employees, allows you to add/remove training as well as select
+     * a focus area for the training(choose the workStation it effects)
+     */
+
     public TMP_Text[] infoText;
     public TMP_Dropdown areaFocus;
     public PlayerInfo player;
@@ -18,6 +24,8 @@ public class TrainingEmployee : MonoBehaviour
     private float timeSec;
     private Business business;
     private List<Image> ImageList = new List<Image> { };
+
+    //set up variables and update the dropDown option for focus area
     void Start()
     {
         business = player.business;
@@ -35,9 +43,9 @@ public class TrainingEmployee : MonoBehaviour
         timeSec = 0;
     }
 
+    //create a loop that is called ever secound
     void Update()
     {
-        //create a loop that is called ever secound
         float tempTime = Time.fixedTime % 1;
         if (tempTime < timeSec)
         {
@@ -46,8 +54,10 @@ public class TrainingEmployee : MonoBehaviour
         timeSec = tempTime;
     }
 
+    //set up the lists visual for training
     public void setUp(int employee)
     {
+        //remove any images that are there from previous use
         foreach (Image image in ImageList)
         {
             contentList[image.GetComponent<EmployeeTrainingTemplate>().location].transform.DetachChildren();
@@ -55,6 +65,7 @@ public class TrainingEmployee : MonoBehaviour
         }
         ImageList = new List<Image> { };
 
+        //check to see if the employee has had the availible training set up if not add active trainings to availible trainings 
         business = player.business;
         this.employee = employee;
         if (business.employeesInfo[employee].trainingAvailible.Count == 0 && business.employeesInfo[employee].timeMultiplyer[0] == 1 && business.employeesInfo[employee].trainingQ.Count == 0)
@@ -68,6 +79,7 @@ public class TrainingEmployee : MonoBehaviour
             }
         }
 
+        //create the templates for any training in the availible training
         for (short x = 0; x < business.employeesInfo[employee].trainingAvailible.Count; x++)
         {
             Image visual = Instantiate(trainingVisual) as Image;
@@ -75,19 +87,21 @@ public class TrainingEmployee : MonoBehaviour
             ImageList.Add(visual);
         }
 
+        //create the templates for any training in the trainingQ
         foreach(order order in business.employeesInfo[employee].trainingQ)
         {
             Image visual = Instantiate(trainingVisual) as Image;
             visual.GetComponent<EmployeeTrainingTemplate>().setUp(ImageList.Count, order.wants[0], 1);
             ImageList.Add(visual);
         }
+
+        //update visual
         listVisualUpdate();
     }
 
-    //return the time that the current training will take based on how fast it is currently running (min:sec)
+    //return the time that the current training will take based on how fast it is currently running (min:sec) or (hour:min)
     public string getTimeForTraining(int amount)
     {
-        //int amount = business.trainingList[employee.task.wants[0]].cost - (int)(business.trainingList[employee.task.wants[0]].cost * employee.task.progress);
         int tempFocus = business.employeesInfo[employee].focus;
 
         if (tempFocus == 0)
@@ -98,13 +112,20 @@ public class TrainingEmployee : MonoBehaviour
         {
             if(player.playerEmployee.workingIn == 3)
             {
-                tempFocus = (int)Mathf.Ceil(amount / (tempFocus * business.employeesInfo[employee].focusMultiplyer[3] * business.employeesInfo[employee].timeMultiplyer[3] * player.decreaseAmount * (1 + (player.percentEffect / 100F))));
+                tempFocus = (int)Mathf.Ceil(amount / (tempFocus * (player.skillPercent[0] / 100F) * business.employeesInfo[employee].focusMultiplyer[3] * business.employeesInfo[employee].timeMultiplyer[3] * player.decreaseAmount * (1 + (player.percentEffect / 100F))));
             }
             else
             {
-                tempFocus = (int)Mathf.Ceil(amount / (tempFocus * business.employeesInfo[employee].focusMultiplyer[3] * business.employeesInfo[employee].timeMultiplyer[3] * player.decreaseAmount));
+                tempFocus = (int)Mathf.Ceil(amount / (tempFocus * (player.skillPercent[0] / 100F) * business.employeesInfo[employee].focusMultiplyer[3] * business.employeesInfo[employee].timeMultiplyer[3] * player.decreaseAmount));
             }
-            if (tempFocus > 60)
+
+            if (tempFocus > 3600)
+            {
+                int tempTime = (int)Mathf.Floor(tempFocus / 3600);
+                tempFocus = tempFocus % 3600;
+                return tempTime.ToString() + "h" + tempFocus.ToString() + "m";
+            }
+            else if (tempFocus > 60)
             {
                 int tempTime = (int)Mathf.Floor(tempFocus / 60);
                 tempFocus = tempFocus % 60;
@@ -117,11 +138,13 @@ public class TrainingEmployee : MonoBehaviour
         }
     }
 
+    //set up the list visual and makes sure that it is up to date
     private void listVisualUpdate()
     {
         changeTrainingSize();
         for (short x = 0; x < ImageList.Count; x++)
         {
+            //if the image is not active then keep it invisable
             if (ImageList[x].GetComponent<EmployeeTrainingTemplate>().active == false)
             {
                 ImageList[x].transform.SetParent(contentList[2].transform, false);
@@ -129,11 +152,13 @@ public class TrainingEmployee : MonoBehaviour
             }
             else if (ImageList[x].GetComponent<EmployeeTrainingTemplate>().location == 0)
             {
+                //if there is not focus area more images to the first list and make them visable
                 if (focusArea == 0)
                 {
                     ImageList[x].transform.SetParent(contentList[0].transform, false);
                     ImageList[x].gameObject.SetActive(true);
                 }
+                //if there is a focus area check if the training is in it, if not make image invisable, otherwise make it visable
                 else
                 {
                     if (changesArea(ImageList[x].GetComponent<EmployeeTrainingTemplate>().training, focusArea - 1) == true)
@@ -148,16 +173,20 @@ public class TrainingEmployee : MonoBehaviour
                     }
                 }
             }
+            //for all training in the trainingQ set them visable in the second list
             else if (ImageList[x].GetComponent<EmployeeTrainingTemplate>().location == 1)
             {
                 ImageList[x].transform.SetParent(contentList[1].transform, false);
                 ImageList[x].gameObject.SetActive(true);
             }
+            //make any other images invisable
             else
             {
                 ImageList[x].transform.SetParent(contentList[2].transform, false);
                 ImageList[x].gameObject.SetActive(false);
             }
+
+            //if the training is currently being worked update the time
             if (isFirst(ImageList[x].GetComponent<EmployeeTrainingTemplate>().training) == true)
             {
                 ImageList[x].GetComponent<EmployeeTrainingTemplate>().updateButton(true);
@@ -170,11 +199,14 @@ public class TrainingEmployee : MonoBehaviour
         }
     }
 
+    //when a training button has been clicked and needs to be added/removed
     public void clicked(int place, int location, int training)
     {
+        //if the image is in the first list add it to the trainingQ and add it to the second list
         if (location == 0)
         {
             ImageList[place].GetComponent<EmployeeTrainingTemplate>().location = 1;
+            //if the training has a follower set it active and add it to the employees availible 
             if (business.trainingList[training].follower != -1)
             {
                 bool tempBool = false;
@@ -210,6 +242,7 @@ public class TrainingEmployee : MonoBehaviour
             business.employeesInfo[employee].trainingQ.Add(tempOrder);
             business.employeesInfo[employee].trainingAvailible.Remove(training);
         }
+        //if the image is in the second list remove it from the trainingQ and deal with any followers to put them back in there correct place
         else
         {
             ImageList[place].GetComponent<EmployeeTrainingTemplate>().location = 0;
@@ -254,6 +287,7 @@ public class TrainingEmployee : MonoBehaviour
                 }
             }
 
+            //remove training from the trainingQ 
             order tempOrder2 = null;
             for (short x = 0; x < business.employeesInfo[employee].trainingQ.Count; x++)
             {
@@ -268,12 +302,14 @@ public class TrainingEmployee : MonoBehaviour
         listVisualUpdate();
     }
 
+    //update the information at the bottom of the lists
     private void updateInfo()
     {
         infoText[0].SetText("Training Available: " + contentList[0].transform.childCount);
         infoText[1].SetText("Training In Selected: " + contentList[1].transform.childCount);
     }
 
+    //set the size of the images so that they fit nicely in the lists 
     public void changeTrainingSize()
     {
         for (short x = 0; x < ImageList.Count; x++)
@@ -282,12 +318,14 @@ public class TrainingEmployee : MonoBehaviour
         }
     }
 
+    //change to a new focus area and update the lists
     public void changeFocusArea(int area)
     {
         this.focusArea = area;
         listVisualUpdate();
     }
-
+    
+    //return true if this training effects the focus area, else false
     private bool changesArea(int place, int area)
     {
         bool inArea = false;
@@ -301,11 +339,13 @@ public class TrainingEmployee : MonoBehaviour
         return inArea;
     }
 
+    //get the currently selected employee from the managerGame
     public int getEmployee()
     {
         return employee;
     }
 
+    //return true if the training is being learned, else false
     public bool isFirst(int place)
     {
         if (business.employeesInfo[employee].trainingQ.Count != 0)

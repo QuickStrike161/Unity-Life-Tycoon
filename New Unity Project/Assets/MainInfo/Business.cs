@@ -25,7 +25,7 @@ public class Business : ScriptableObject
     public int type;
     public int menuIteamsAmount;
     public int menuIteamsAmountDefault;
-    public int[] negativeHappiness = new int[] {0,0,0,0,0};
+    public int[] negativeHappiness = new int[] {0,0,0,0};
     public int[] wageIncrease = new int[2];
     public float customerIncrease;
     public float customerIncreaseDefault;
@@ -88,7 +88,7 @@ public class menuIteams
     public int percentIntrestDefault;
     public int price;
     public int time;
-    public int type;
+    public int type; //0 is main food iteam, 1 is sides, 2 is drinks
     public ingredients[] ingredientsList;
 
     public void reset()
@@ -217,6 +217,7 @@ public class order
     public int[] wants;
     public float progress;
     public bool taken;
+    wants listofwants;
 
     public order(string name, int[] wants, bool taken)
     {
@@ -225,6 +226,34 @@ public class order
         this.progress = 0;
         this.taken = taken;
     }
+
+    public order(string name, wants want, bool taken){
+    	this.name = name;
+        this.listofwants = want;
+        this.progress = 0;
+        this.taken = taken;
+    }
+}
+
+public class wants{
+	string s;
+	int menuCount;
+	public List<string> items = new List<string>();
+
+	public wants(int ID){
+		s = "";
+		this.menuCount = ID;
+	}
+
+	public void GetWant(){
+		for(int i =0; i < menuCount; i++){
+			int decider = Random.Range(0, 5);
+			if(decider == 0){
+				s = "Burger";
+				items.Add(s);
+			}
+		}
+	}
 }
 
 //iteams used in the shop menu's makes the player/employees faster

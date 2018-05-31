@@ -6,6 +6,12 @@ using TMPro;
 
 public class MoreInfoControl : MonoBehaviour {
 
+    /*
+     * this is used in every work station to give the player more information abou the work station,
+     * such as planning the creation of goods, maintaining the business, and displaying customer orders
+     * needs to have the rest of the workstation types added
+     */
+
     public TMP_Text[] title;
     public TMP_Text[] info;
     public PlayerInfo player;
@@ -19,7 +25,7 @@ public class MoreInfoControl : MonoBehaviour {
     private int selected;
     private float timeSec;
     private bool updateVisual;
-    private List<string> infoContainer = new List<string> { };
+    private List<string> infoContainer = new List<string> { };//used to set up the string lists do infoContainer.add("words");
     private Business business;
     private List<Image> ImageList = new List<Image> { };
     private float[] storeInfo = new float[] { 0, 0, 0, 0 };
@@ -30,9 +36,9 @@ public class MoreInfoControl : MonoBehaviour {
         timeSec = 0;
         selected = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    //create a loop that is called ever secound used to update the information
+    void Update () {
         //create a loop that is called ever secound
         float tempTime = Time.fixedTime % 1;
         if (tempTime < timeSec)
@@ -50,8 +56,10 @@ public class MoreInfoControl : MonoBehaviour {
         timeSec = tempTime;
     }
     
+    //set up the displays diffrently depending on the workStaion type
     public void setUp(int station)
     {
+        //reset so that it can be setup again 
         business = player.business;
         type = business.workStations[station].type;
         this.station = station;
@@ -77,6 +85,7 @@ public class MoreInfoControl : MonoBehaviour {
                 storeInfo = new float[] { 0, 0, 0, 0 };
                 setUpStoreInfo(station);
 
+                //set up an image for each employee that is working in the station 
                 foreach (employee employee in business.employeesInfo)
                 {
                     if (employee.workingIn == station)
@@ -89,10 +98,11 @@ public class MoreInfoControl : MonoBehaviour {
                     }
                 }
 
+                //set the text for title and info
                 title[0].SetText(business.workStations[station].name);
                 info[0].SetText("Employee's Working: " + ImageList.Count);
                 
-
+                //set up the information that will displayed for this work station
                 title[1].SetText(business.workStations[station].name);
                 infoContainer.Add("");
                 infoContainer.Add(business.workStations[station].orders[0].name);
@@ -117,6 +127,7 @@ public class MoreInfoControl : MonoBehaviour {
                 updateVisual = true;
                 infoSetUp[0].SetActive(true);
 
+                //set up an image for each employee that is working in the station 
                 foreach (employee employee in business.employeesInfo)
                 {
                     if (employee.workingIn == station)
@@ -129,9 +140,11 @@ public class MoreInfoControl : MonoBehaviour {
                     }
                 }
 
+                //set the text for the title and info
                 title[0].SetText(business.workStations[station].name);
                 info[0].SetText("Employee's Working: " + ImageList.Count);
 
+                //if there are no employees in this staion 
                 if (ImageList.Count == 0)
                 {
                     title[1].SetText("None");
@@ -140,10 +153,13 @@ public class MoreInfoControl : MonoBehaviour {
                 }
                 else
                 {
+                    //set the employee that is selected if the last selected employee was removed
                     if (ImageList.Count < selected + 1)
                     {
                         selected = ImageList.Count - 1;
                     }
+
+                    //if there is no training for the selected employee
                     employee temp = ImageList[selected].GetComponent<MoreInfoTemplate>().employee;
                     title[1].SetText(temp.name);
                     if (temp.trainingQ.Count == 0)
@@ -156,6 +172,7 @@ public class MoreInfoControl : MonoBehaviour {
                     }
                     else
                     {
+                        //for each training in the selected employees trainingQ set up the dispaly 
                         foreach(order tempOrder in temp.trainingQ)
                         {
                             infoContainer.Add(tempOrder.name + ":");
@@ -171,6 +188,7 @@ public class MoreInfoControl : MonoBehaviour {
                     }
                 }
 
+                //set the image that is selected button to blue
                 foreach(Image image in ImageList)
                 {
                     image.GetComponent<MoreInfoTemplate>().setColor(false);
@@ -183,6 +201,7 @@ public class MoreInfoControl : MonoBehaviour {
         }
     }
 
+    //remove the last character of a string
     public string removeEnd(string word)
     {
         word.ToLower();
@@ -190,11 +209,13 @@ public class MoreInfoControl : MonoBehaviour {
         return word;
     }
 
+    //set the size of the template in the first list
     public void changeEmployeeSize()
     {
         firstVisual.rectTransform.sizeDelta = new Vector2(topControl[0].rect.width, 35);
     }
 
+    //if the text scroll is being used set the length of the text and then place in the strings that were added to infoContainer
     public void changeSelectedSize()
     {
         info[1].rectTransform.sizeDelta = new Vector2(topControl[1].rect.width, infoContainer.Count * 18.5F);
@@ -206,6 +227,7 @@ public class MoreInfoControl : MonoBehaviour {
         info[1].SetText(tempString);
     }
 
+    //update when the selected is changed 
     public void changeSelected(int place)
     {
         selected = place;
@@ -219,6 +241,7 @@ public class MoreInfoControl : MonoBehaviour {
         }
     }
 
+    //set up the amounts that the store is being maintained by
     public void setUpStoreInfo(int station)
     {
         workStation useThis = business.workStations[station];
@@ -244,6 +267,7 @@ public class MoreInfoControl : MonoBehaviour {
         storeInfo[3] = useThis.orders[0].wants[0] + useThis.orders[0].progress;
     }
 
+    //update the employees productivity based on there happiness
     public float getWorkForHappiness(employee employee)
     {
         float temp = employee.happiness + 10;
