@@ -17,23 +17,18 @@ MonoBehaviour:
   customerServed: 0
   customerNeeded: 2500
   wage: 1000
-  happiness: 100
+  happiness: 98
   storage: 1000
   storageDefault: 1000
   type: 0
   menuIteamsAmount: 5
   menuIteamsAmountDefault: 5
-  negativeHappiness: 0000000000000000000000000000000000000000
+  negativeHappiness: 0000000000000000020000000000000000000000
   wageIncrease: c8000000c8000000
-  customerIncrease: 2
+  customerIncrease: 2.398
   customerIncreaseDefault: 2
   businessType:
-    name: Burger Place
-    percentIntrest: 100
-    percentIntrestDefault: 100
-    menuIteams: []
-  businessList:
-  - name: BurgerShop
+    name: BurgerShop
     percentIntrest: 100
     percentIntrestDefault: 100
     menuIteams:
@@ -48,8 +43,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: beef-patty
+        price: 50
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -71,8 +66,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: Chicken-Breast
+        price: 100
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -95,8 +90,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: beef-patty
+        price: 50
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -107,6 +102,10 @@ MonoBehaviour:
         price: 100
         stored: 0
         amountPerUse: 0.1
+      - name: Cheese
+        price: 25
+        stored: 0
+        amountPerUse: 1
     - name: Bacon Burger
       ingredients:
       - beef-patty
@@ -119,8 +118,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: beef-patty
+        price: 50
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -131,6 +130,10 @@ MonoBehaviour:
         price: 100
         stored: 0
         amountPerUse: 0.1
+      - name: Bacon
+        price: 25
+        stored: 0
+        amountPerUse: 1
     - name: Bacon Cheese Burger
       ingredients:
       - beef-patty
@@ -144,8 +147,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: beef-patty
+        price: 50
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -156,6 +159,14 @@ MonoBehaviour:
         price: 100
         stored: 0
         amountPerUse: 0.1
+      - name: Cheese
+        price: 25
+        stored: 0
+        amountPerUse: 1
+      - name: Bacon
+        price: 25
+        stored: 0
+        amountPerUse: 1
     - name: Vegi Burger
       ingredients:
       - Vegi-patty
@@ -167,8 +178,8 @@ MonoBehaviour:
       time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: Vegi-patty
+        price: 30
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -188,15 +199,7 @@ MonoBehaviour:
       time: 10
       type: 1
       ingredientsList:
-      - name: burger
-        price: 500
-        stored: 0
-        amountPerUse: 1
-      - name: bun
-        price: 30
-        stored: 0
-        amountPerUse: 1
-      - name: condiments
+      - name: Pops
         price: 100
         stored: 0
         amountPerUse: 0.1
@@ -209,18 +212,10 @@ MonoBehaviour:
       time: 15
       type: 1
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: Coffee-Beans
+        price: 50
         stored: 0
-        amountPerUse: 1
-      - name: bun
-        price: 30
-        stored: 0
-        amountPerUse: 1
-      - name: condiments
-        price: 100
-        stored: 0
-        amountPerUse: 0.1
+        amountPerUse: 0.2
     - name: Fries
       ingredients:
       - Baged-Fries
@@ -229,20 +224,16 @@ MonoBehaviour:
       percentIntrestDefault: 75
       price: 100
       time: 15
-      type: 0
+      type: 2
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: Baged-Fries
+        price: 200
         stored: 0
-        amountPerUse: 1
-      - name: bun
-        price: 30
+        amountPerUse: 0.05
+      - name: Cooking-Oil
+        price: 150
         stored: 0
-        amountPerUse: 1
-      - name: condiments
-        price: 100
-        stored: 0
-        amountPerUse: 0.1
+        amountPerUse: 0.01
     - name: Onion Rings
       ingredients:
       - Baged-OnionRings
@@ -251,10 +242,34 @@ MonoBehaviour:
       percentIntrestDefault: 20
       price: 150
       time: 10
+      type: 2
+      ingredientsList:
+      - name: Baged-OnionRings
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+      - name: Cooking-Oil
+        price: 150
+        stored: 0
+        amountPerUse: 0.01
+  businessList:
+  - name: BurgerShop
+    percentIntrest: 100
+    percentIntrestDefault: 100
+    menuIteams:
+    - name: HamBurger
+      ingredients:
+      - beef-patty
+      - bun
+      - condiments
+      percentIntrest: 30
+      percentIntrestDefault: 30
+      price: 500
+      time: 60
       type: 0
       ingredientsList:
-      - name: burger
-        price: 500
+      - name: beef-patty
+        price: 50
         stored: 0
         amountPerUse: 1
       - name: bun
@@ -265,15 +280,228 @@ MonoBehaviour:
         price: 100
         stored: 0
         amountPerUse: 0.1
+    - name: Chicken Burger
+      ingredients:
+      - Chicken-Breast
+      - bun
+      - condiments
+      percentIntrest: 20
+      percentIntrestDefault: 20
+      price: 650
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: Chicken-Breast
+        price: 100
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+    - name: Cheese Burger
+      ingredients:
+      - beef-patty
+      - bun
+      - condiments
+      - Cheese
+      percentIntrest: 25
+      percentIntrestDefault: 25
+      price: 600
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: beef-patty
+        price: 50
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+      - name: Cheese
+        price: 25
+        stored: 0
+        amountPerUse: 1
+    - name: Bacon Burger
+      ingredients:
+      - beef-patty
+      - bun
+      - condiments
+      - Bacon
+      percentIntrest: 20
+      percentIntrestDefault: 20
+      price: 600
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: beef-patty
+        price: 50
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+      - name: Bacon
+        price: 25
+        stored: 0
+        amountPerUse: 1
+    - name: Bacon Cheese Burger
+      ingredients:
+      - beef-patty
+      - bun
+      - condiments
+      - Cheese
+      - Bacon
+      percentIntrest: 25
+      percentIntrestDefault: 25
+      price: 700
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: beef-patty
+        price: 50
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+      - name: Cheese
+        price: 25
+        stored: 0
+        amountPerUse: 1
+      - name: Bacon
+        price: 25
+        stored: 0
+        amountPerUse: 1
+    - name: Vegi Burger
+      ingredients:
+      - Vegi-patty
+      - bun
+      - condiments
+      percentIntrest: 10
+      percentIntrestDefault: 10
+      price: 450
+      time: 60
+      type: 0
+      ingredientsList:
+      - name: Vegi-patty
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: bun
+        price: 30
+        stored: 0
+        amountPerUse: 1
+      - name: condiments
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+    - name: Pop
+      ingredients:
+      - Pops
+      percentIntrest: 60
+      percentIntrestDefault: 60
+      price: 150
+      time: 10
+      type: 1
+      ingredientsList:
+      - name: Pops
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+    - name: Coffee
+      ingredients:
+      - Coffee-Beans
+      percentIntrest: 30
+      percentIntrestDefault: 30
+      price: 100
+      time: 15
+      type: 1
+      ingredientsList:
+      - name: Coffee-Beans
+        price: 50
+        stored: 0
+        amountPerUse: 0.2
+    - name: Fries
+      ingredients:
+      - Baged-Fries
+      - Cooking-Oil
+      percentIntrest: 75
+      percentIntrestDefault: 75
+      price: 100
+      time: 15
+      type: 2
+      ingredientsList:
+      - name: Baged-Fries
+        price: 200
+        stored: 0
+        amountPerUse: 0.05
+      - name: Cooking-Oil
+        price: 150
+        stored: 0
+        amountPerUse: 0.01
+    - name: Onion Rings
+      ingredients:
+      - Baged-OnionRings
+      - Cooking-Oil
+      percentIntrest: 20
+      percentIntrestDefault: 20
+      price: 150
+      time: 10
+      type: 2
+      ingredientsList:
+      - name: Baged-OnionRings
+        price: 100
+        stored: 0
+        amountPerUse: 0.1
+      - name: Cooking-Oil
+        price: 150
+        stored: 0
+        amountPerUse: 0.01
   workStations:
   - name: 'Register:'
     workName: 'Customers:'
     type: 2
     timeMain: 40
-    EmployeeSpace: 8
+    EmployeeSpace: 7
     spaceDefault: 8
     extra: 01000000
-    orders: []
+    orders:
+    - name: Chris
+      wants: 0000000001000000020000000300000004000000050000000800000009000000
+      progress: 0
+      taken: 0
+    - name: Kalani
+      wants: 000000000100000003000000050000000600000007000000
+      progress: 0
+      taken: 0
+    - name: Kinslee
+      wants: 010000000200000003000000040000000500000009000000
+      progress: 0
+      taken: 0
+    - name: Kayla
+      wants: 0000000002000000030000000500000009000000
+      progress: 0
+      taken: 0
     slider: {fileID: 0}
     titleText: {fileID: 0}
     progressText: {fileID: 0}
@@ -303,8 +531,8 @@ MonoBehaviour:
     extra: 
     orders:
     - name: 'Filth Amount:'
-      wants: 00000000
-      progress: 0.4191514
+      wants: 02000000
+      progress: 0.02021357
       taken: 0
     slider: {fileID: 0}
     titleText: {fileID: 0}
@@ -322,7 +550,37 @@ MonoBehaviour:
     titleText: {fileID: 0}
     progressText: {fileID: 0}
     focuseInput: {fileID: 0}
-  employeesInfo: []
+  employeesInfo:
+  - name: Gracelyn
+    focusMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    timeMultiplyer:
+    - 1
+    - 1
+    - 1
+    - 1
+    wage: 1000
+    workingIn: 0
+    wasWorkingIn: 0
+    happiness: 100
+    timeWorking: 34
+    timeTillUnhappiness: 326
+    focus: 10
+    multiplyerFocus: -1
+    shopIteamsAvailible: 00000000010000000200000003000000
+    trainingAvailible: 
+    trainingQ: []
+    task:
+      name: 
+      wants: 
+      progress: 0
+      taken: 0
+    infoText: {fileID: 0}
+    nameText: {fileID: 0}
+    slider: {fileID: 0}
   iteamList:
   - name: Broom
     description: Helps you cleen

@@ -9,7 +9,7 @@ public class ManagerGame : MonoBehaviour {
     /*
      * this is the main control for the second stage of the game, it controls the workstations,
      * and the work that employees do within the stations
-     */ 
+     */
 
     public GameObject[] contentList;
     public RectTransform[] topControl;
@@ -39,9 +39,9 @@ public class ManagerGame : MonoBehaviour {
     private float timeAmount;
     private Business business;
     private GameObject employeeTempate;
-    private List<Image> buttons = new List<Image> {};
+    private List<Image> buttons = new List<Image> { };
     // Use this for initialization
-    void Start () {
+    void Start() {
         business = player.business;
 
         //recreate the employees from the saved data
@@ -60,7 +60,7 @@ public class ManagerGame : MonoBehaviour {
         for (short x = 0; x < 4; x++)
         {
             business.workStations[x].progressText = workInfo[x];
-            upDateAmount(x,null);
+            upDateAmount(x, null);
             if (business.workStations[x].type == 2 || business.workStations[x].type == 3)
             {
                 needsCustomers = x;
@@ -81,12 +81,12 @@ public class ManagerGame : MonoBehaviour {
         businessInfo[5].SetText("0:00 AM");
         timeAm_Pm = false;
         timeAmount = 0;
-        
+
         //for the menuIteam's make a connection between the ingredients and the ingredients that the menuIteams need
         foreach (menuIteams menuIteam in business.businessList[0].menuIteams)
         {
             menuIteam.ingredientsList = new ingredients[menuIteam.ingredients.Length];
-            for(short x = 0; x < menuIteam.ingredients.Length; x++)
+            for (short x = 0; x < menuIteam.ingredients.Length; x++)
             {
                 foreach (ingredients ingredient in business.ingredientList)
                 {
@@ -98,9 +98,9 @@ public class ManagerGame : MonoBehaviour {
             }
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         //this controles the time diplay as well as ever 24 seconds updates the add customers funtion
         float tempTime = Time.fixedTime % 12;
         int tempHours = (int)Mathf.Floor(tempTime);
@@ -154,7 +154,7 @@ public class ManagerGame : MonoBehaviour {
         {
 
         }
-        
+
         //run the employees
         for (short x = 0; x < business.employeesInfo.Count; x++)
         {
@@ -215,9 +215,9 @@ public class ManagerGame : MonoBehaviour {
                     }
 
                     //update the displays of the employees that are working in this staion 
-                    foreach(employee tempEmployee in business.employeesInfo)
+                    foreach (employee tempEmployee in business.employeesInfo)
                     {
-                        if(tempEmployee.workingIn == x)
+                        if (tempEmployee.workingIn == x)
                         {
                             tempEmployee.task.progress = tempProgress;
                             upDateAmount(x, tempEmployee);
@@ -249,7 +249,7 @@ public class ManagerGame : MonoBehaviour {
                 else
                 {
                     float temp = 1 - (business.employeesInfo[x].wage / (business.wage * 3F));
-                    business.employeesInfo[x].timeTillUnhappiness = (int)Mathf.Ceil(240/temp);
+                    business.employeesInfo[x].timeTillUnhappiness = (int)Mathf.Ceil(240 / temp);
                 }
             }
             business.employeesInfo[x].timeTillUnhappiness = business.employeesInfo[x].timeTillUnhappiness - 1;
@@ -261,7 +261,7 @@ public class ManagerGame : MonoBehaviour {
     {
         if (place == -1)
         {
-            for(short x = 0; x < buttons.Count; x++)
+            for (short x = 0; x < buttons.Count; x++)
             {
                 buttons[x].rectTransform.sizeDelta = new Vector2(topControl[business.employeesInfo[x].workingIn].rect.width, 65);
             }
@@ -451,7 +451,7 @@ public class ManagerGame : MonoBehaviour {
             player.playerEmployee.wasWorkingIn = workArea;
         }
     }
-    
+
     //toggle the training menues
     public void training()
     {
@@ -575,14 +575,32 @@ public class ManagerGame : MonoBehaviour {
         //update the customers waiting
         for (int x = 0; x < tempCustomers; x++)
         {
-            int[] want = new int[] { 0 };
-            int ID = Random.Range(0, 3);
-            wants want1 = new wants(ID);
-            want1.GetWant();
-            order order = new order(mainControl.getName(), want1, false);
+            int[] tempInt = getWants();
+            order order = new order(mainControl.getName(), tempInt, false);
             useThis.orders.Add(order);
         }
         upDateAmount(needsCustomers, null);
+    }
+    
+    //create an array of menu items depending on the percent intrest for the cusomters, randomly generated
+    private int[] getWants()
+    {
+        List<int> wants = new List<int>(0);
+        for(short x = 0; x < business.businessType.menuIteams.Length; x++)
+        {
+            int rnTemp = Random.Range(0, 100);
+            if (business.businessType.menuIteams[x].percentIntrest < rnTemp)
+            {
+                wants.Add(x);
+            }
+        }
+
+        int[] tempWants = new int[wants.Count];
+        for (short x = 0; x < wants.Count; x++)
+        {
+            tempWants[x] = wants[x];
+        }
+        return tempWants;
     }
 
     //update the happiness of the business and happiness diplay

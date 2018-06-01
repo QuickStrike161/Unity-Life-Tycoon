@@ -79,6 +79,66 @@ public class MoreInfoControl : MonoBehaviour {
 
         switch (type)
         {
+            case 2:
+                updateVisual = true;
+                infoSetUp[0].SetActive(true);
+                foreach (order customer in business.workStations[station].orders)
+                {
+                    Image visual = Instantiate(firstVisual) as Image;
+                    visual.GetComponent<MoreInfoTemplate>().setUp(ImageList.Count, customer, false);
+                    ImageList.Add(visual);
+                    visual.transform.SetParent(content.transform, false);
+                    visual.gameObject.SetActive(true);
+                }
+
+                title[0].SetText(business.workStations[station].name);
+                info[0].SetText("Customers Waiting: " + ImageList.Count);
+                
+                //if there are no customers in this staion 
+                if (ImageList.Count == 0)
+                {
+                    title[1].SetText("None");
+                    infoContainer.Add("No Customers are Waiting");
+                    changeSelectedSize();
+                }
+                else
+                {
+                    //set the employee that is selected if the last selected employee was removed
+                    if (ImageList.Count < selected + 1)
+                    {
+                        selected = ImageList.Count - 1;
+                    }
+
+                    foreach (order customer in business.workStations[station].orders)
+                    {
+                        for (short x = 0; x < 2; x++)
+                        {
+                            switch (x)
+                            {
+                                case 0:
+                                    infoContainer.Add("Main corse");
+                                    break;
+                                case 1:
+                                    infoContainer.Add("Sides");
+                                    break;
+                                case 2:
+                                    infoContainer.Add("Drinks");
+                                    break;
+                            }
+
+                            foreach (int want in customer.wants)
+                            {
+                                if (business.businessType.menuIteams[want].type == x)
+                                {
+                                    infoContainer.Add(business.businessType.menuIteams[want].name);
+                                }
+                            }
+                        }
+                    }
+                    changeSelectedSize();
+                }
+
+                break;
             case 4:
                 updateVisual = true;
                 infoSetUp[0].SetActive(true);

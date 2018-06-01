@@ -37,6 +37,16 @@ public class MoreInfoTemplate : MonoBehaviour
         SelectedText.SetText("Select");
     }
 
+    public void setUp(int place, order order, bool on)
+    {
+        this.place = place;
+        this.order = order;
+        this.on = on;
+        PlaceText.SetText(place + 1 + ".");
+        NameText.SetText(order.name);
+        SelectedText.SetText("Select");
+    }
+
     //tell more info control that the button was clicked
     public void onClick()
     {
